@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Класс MyServlet обрабатывает Http запросы и вызывает JSP страницу
+ * Класс сервлет для предствления начальной страницы
  */
-@WebServlet("/world")
+@WebServlet(name = "hello", urlPatterns = "/")
 public class MyServlet extends HttpServlet {
-
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/myJsp.jsp").forward(request, response);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write("Welcome to my first web REST API");
     }
 }
